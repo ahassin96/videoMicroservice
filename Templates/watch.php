@@ -7,7 +7,7 @@
     <title>Watch Video - MyFlix</title>
 </head>
 <body>
-    <h1>Watch Video - MyFlix HELLO</h1>
+    <h1>Watch Video - MyFlix HELLO MYfliz Hello</h1>
     <h2>{{ video_details['title'] }}</h2>
     <p>{{ video_details['description'] }}</p>
 
