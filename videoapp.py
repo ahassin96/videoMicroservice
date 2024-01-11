@@ -2,9 +2,11 @@ from flask import Flask, render_template
 from pymongo import MongoClient
 from bson import ObjectId
 from urllib.parse import quote
+import logging
+
 
 app = Flask(__name__, template_folder='Templates')
-
+app.logger.setLevel(logging.DEBUG)
 @app.route('/watch.php/<video_id>')
 def watch(video_id):
 
@@ -30,6 +32,7 @@ def watch(video_id):
     except Exception as e:
 
         app.logger.exception("An error occurred:")
+        print(f"An error occurred: {str(e)}")
         return "Error: " + str(e)
 
 if __name__ == '__main__':
