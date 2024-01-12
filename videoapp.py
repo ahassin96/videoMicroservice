@@ -7,6 +7,26 @@ import logging
 
 app = Flask(__name__, template_folder='Templates')
 app.logger.setLevel(logging.DEBUG)
+
+@app.route('/api/video/<video_id>')
+def get_video_details(video_id):
+    try:
+        client = MongoClient("mongodb://ec2-54-221-90-30.compute-1.amazonaws.com:27017")
+        db = client.admin
+        video_details = db.movies.find_one({'_id': ObjectId(video_id)})
+
+        if video_details:
+            app.logger.info(f'Video details: {video_details}')
+            return jsonify({'success': True, 'video_details': video_details})
+        else:
+            app.logger.warning("Video not found.")
+            return jsonify({'success': False, 'error': 'Video not found.'})
+
+    except Exception as e:
+        app.logger.exception("An error occurred:")
+        return jsonify({'success': False, 'error': str(e)})
+
+
 @app.route('/watch.php/<video_id>')
 def watch(video_id):
 
