@@ -5,7 +5,7 @@ MarkupSafe==2.0.1
 Werkzeug==2.2.2
 Blinker==1.7.0
 Click==8.1.7
-colourama==0.4.6
+colourama
 dnspython==2.1.1
 itsdangerous==2.1.1
 pip==22.0.3
