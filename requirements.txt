@@ -2,10 +2,10 @@ Flask==2.1.3
 Flask-CORS==3.0.10
 Jinja2==3.1.2
 MarkupSafe==2.0.1
-Werkzeug==2.1.3
-Blinker==1.4
-Click==8.0.3
-colourama==0.4.4
+Werkzeug==2.2.2
+Blinker==1.7.0
+Click==8.1.7
+colourama==0.4.6
 dnspython==2.1.1
 itsdangerous==2.1.1
 pip==22.0.3
