@@ -10,7 +10,7 @@ app = Flask(__name__, template_folder='Templates')
 app.logger.setLevel(logging.DEBUG)
 CORS(app)
 
-@app.route('/api/video/<video_id>')
+@app.route('/watch.php/<video_id>')
 def get_video_details(video_id):
     app.logger.info(f'Received API request for video ID: {video_id}')
     try:
@@ -33,8 +33,8 @@ def get_video_details(video_id):
         app.logger.exception("An error occurred:")
         return jsonify({'success': False, 'error': str(e)})
 
+@app.route('/api/video/<video_id>')
 
-@app.route('/watch.php/<video_id>')
 def watch(video_id):
 
 
