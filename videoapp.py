@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from flask_cors import CORS
 from pymongo import MongoClient
 from bson import ObjectId
 from urllib.parse import quote
@@ -7,6 +8,7 @@ import logging
 
 app = Flask(__name__, template_folder='Templates')
 app.logger.setLevel(logging.DEBUG)
+CORS(app)
 
 @app.route('/api/video/<video_id>')
 def get_video_details(video_id):
