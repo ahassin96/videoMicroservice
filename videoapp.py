@@ -4,7 +4,7 @@ from pymongo import MongoClient
 from bson import ObjectId
 import logging
 
-app = Flask(__name__, template_folder='Templates')
+app = Flask(__name__)
 app.logger.setLevel(logging.DEBUG)
 CORS(app)
 
