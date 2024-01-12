@@ -6,7 +6,7 @@ import logging
 
 app = Flask(__name__)
 app.logger.setLevel(logging.DEBUG)
-CORS(app)
+CORS(app, resources={r"/watch.php/*": {"origins": "*"}})
 
 @app.route('/watch.php/<video_id>')
 def watch(video_id):
