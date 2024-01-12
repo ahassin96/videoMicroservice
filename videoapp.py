@@ -12,6 +12,7 @@ CORS(app)
 
 @app.route('/api/video/<video_id>')
 def get_video_details(video_id):
+    app.logger.info(f'Received API request for video ID: {video_id}')
     try:
         client = MongoClient("mongodb://ec2-54-221-90-30.compute-1.amazonaws.com:27017")
         db = client.admin
