@@ -8,9 +8,7 @@ app = Flask(__name__)
 app.logger.setLevel(logging.DEBUG)
 CORS(app)
 
-
-
-@app.route('/<video_id>', methods=['GET'])
+@app.route('/api/<video_id>')
 def get_video_details(video_id):
     app.logger.info(f'Received API request for video ID: {video_id}')
     try:
