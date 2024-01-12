@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
 from flask_cors import CORS
 from pymongo import MongoClient
 from bson import ObjectId
@@ -19,6 +19,10 @@ def get_video_details(video_id):
 
         if video_details:
             app.logger.info(f'Video details: {video_details}')
+
+
+            video_details['_id'] = str(video_details['_id'])
+
             return jsonify({'success': True, 'video_details': video_details})
         else:
             app.logger.warning("Video not found.")
