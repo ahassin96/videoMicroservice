@@ -27,7 +27,7 @@ class WatchResource(Resource):
             video_details = db.movies.find_one({'_id': ObjectId(video_id)})
 
             if video_details:
-                # Convert ObjectId to string
+
                 video_details['_id'] = str(video_details['_id'])
                 app.logger.info(f'Video details: {video_details}')
                 return {"video_details": video_details}, 200
@@ -43,4 +43,4 @@ class WatchResource(Resource):
 api.add_resource(WatchResource, '/watch/<video_id>')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000)
