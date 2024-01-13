@@ -13,6 +13,10 @@ app.logger.setLevel(logging.DEBUG)
 resource_fields = {
     'video_details': fields.Raw,
 }
+@app.route('/test')
+def test_route():
+    return 'Hello, this is a test route!'
+
 
 class WatchResource(Resource):
     @marshal_with(resource_fields)
